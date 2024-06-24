@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --pink-color: #EB567B;
+    --green-loopsider: #58EC94;
+    --black-text: #262626;
+    --gray-text: #4C4C4C;
+    --black-2: #100E0D;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+
+}
+a {
+    /* padding: 0 !important; */
+    margin: 0 !important;
+}
+
+.c1, .c6, .c7, .c8, .c9, .c10 {
+    padding-bottom: 13px;
+}
+
+fieldset {
+    border-radius: 12px !important;
+    border-color: rgba(62, 62, 62, 0.23) !important;
+}
+
+.loop-black-text {
+    color: var(--black-2) !important;
+}
+
+.loop-gray-text {
+    color: var(--gray-text);
+}
+
+
+.text-main-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    /* text-align: left; */
+}
+
+.text-main {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.main-div-spacing-x {
+    padding-right: 8%;
+    padding-left: 8%;
+}
+
+.main-div-spacing-x-left {
+    padding-left: 14%;
+}
+
+.main-div-spacing-x-2 {
+    padding-right: 14%;
+    padding-left: 14%;
+}
+
+.main-div-spacing-y {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.main-div-spacing-y-bot {
+    padding-bottom: 100px;
+}
+
+.statistics-container {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+.stat {
+    max-width: 50%;
+    border-left: 4px solid #58EC94;
+}

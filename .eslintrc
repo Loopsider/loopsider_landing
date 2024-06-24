@@ -1,0 +1,128 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:jsx-a11y/recommended",
+		"airbnb",
+		"airbnb/hooks",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:@next/next/recommended",
+		"plugin:import/recommended",
+		"prettier"
+	],
+	"plugins": [
+		"react",
+		"react-hooks",
+		"unused-imports",
+		"import"
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				],
+				"moduleDirectory": [
+					"node_modules",
+					"src/"
+				]
+			}
+		}
+	},
+	"parserOptions": {
+		"ecmaVersion": 12,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"rules": {
+		"react/jsx-uses-react": "off",
+		"no-nested-ternary": 0, // Ternaire imbriqués
+		"no-inline-comments": 0, // Pas de commentaire en ligne
+		"no-alert": "off", // Désactive l'utilisation de window.alert()
+		"no-underscore-dangle": "off", // Interdire les traits de soulignement dans les var
+		"no-plusplus": 0,
+		"react-hooks/rules-of-hooks": "error", // Respect des règles de React Hooks
+		"react-hooks/exhaustive-deps": [
+			"warn",
+			{
+				"additionalHooks": "useRecoilCallback"
+			}
+		],
+		"unused-imports/no-unused-imports": "error", // Génère une erreur en cas d'import inutilisé
+		"import/prefer-default-export": 0, // Désactive l'option qui force l'export par défault
+		"import/named": 2, // Vérifie que toutes les importations nommées font partie de l'ensemble des exportations nommées dans le module référencé.
+		"import/namespace": 2, // Vérifie que les importations nommées font partie des exportations nommées dans le module importé
+		"import/default": 2, // Si une importation par défaut est demandée, cette règle signalera s'il n'y a pas d'exportation par défaut dans le module importé
+		"import/export": 2, // Signale les exportations répétés (ex: Export de fonction avec un nom identique a des import effectués)
+		"react/require-default-props": 0, // Désactive l'utilisation de DefaultProps
+		"react/prop-types": 0, // Désactive la validation des prop-types
+		"react/react-in-jsx-scope": 0, // Désactive l'import de React obligatoire
+		"react/jsx-props-no-spreading": 0, // Désactive l'interdiction de diffusion des accessoires JSX {...props}
+		"react/function-component-definition": [
+			2,
+			{
+				"namedComponents": [
+					"arrow-function",
+					"function-declaration"
+				],
+				"unnamedComponents": "arrow-function"
+			}
+		],
+		"react/no-array-index-key": 0, // Empêche l'utilisation de l'index Array dans les clés, peut causer des rendu inutie)
+		"no-multiple-empty-lines": [ // Signale une erreur en cas de ligne vide multiple
+			2,
+			{
+				"max": 1 // Nombre de ligne vide acceptée
+			}
+		],
+		"react/jsx-curly-brace-presence": [ // Par défaut, cette règle recherchera et avertira des accolades inutiles dans les accessoires JSX et les enfants.
+			"error",
+			{
+				"props": "never",
+				"children": "never"
+			}
+		],
+		"sort-imports": [ // Règle pour le formattage des importations
+			"error",
+			{
+				"ignoreCase": false, // Empêche d'ignorer la casse pour les importations
+				"ignoreDeclarationSort": true, // Ignore le tri des instructions de déclaration d'importation
+				"ignoreMemberSort": false, // Ignore le tri des membres dans une multiple déclaration d'importation (ex: import {a, b, c} from 'foo.js')
+				"allowSeparatedGroups": false, // Si true, la règle trie uniquement les importations apparaissant sur des lignes consécutives
+				"memberSyntaxSortOrder": [
+					"none", // module d'importation sans liaisons
+					"multiple", // Import multiple
+					"all", // Import *
+					"single" // Import simple
+				]
+			}
+		],
+		"import/order": [ // Applique une convention dans l'ordre d'importation des modules
+			1,
+			{
+				"groups": [
+					"builtin", // ex: import fs from 'fs'; (interne a Node.js)
+					"external", // ex: import _ from 'lodash'; (node_modules)
+					"internal", // ex: import foo from 'src/foo';
+					"sibling", // ex: import bar from './bar';
+					"parent", // ex: import foo from '../foo';
+					"index" // ex: import main from './';
+				]
+			}
+		]
+	}
+}
