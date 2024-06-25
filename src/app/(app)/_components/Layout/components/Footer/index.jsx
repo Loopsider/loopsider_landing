@@ -3,11 +3,11 @@ import Button from "@mui/material/Button"
 
 // import BasicModal from "../Button"
 
-import logoBackLoopsider from "../../../../../../../public/img/svg/logo_loopsider.svg"
 import LoopsiderLogoGreen from "./svg/loopsider_footer.svg"
 import HupsterLogo from "./svg/hupster_footer.svg"
 import PeriodLogo from "./svg/period_footer.svg"
 import bCorpLogo from "./svg/bcorp_footer.svg"
+import logoBackLoopsider from "../../../../../../../public/img/svg/logo_loopsider.svg"
 
 import fbLogo from "../../../../../../../public/img/svg/logos/black/fb.svg"
 import igLogo from "../../../../../../../public/img/svg/logos/black/ig.svg"

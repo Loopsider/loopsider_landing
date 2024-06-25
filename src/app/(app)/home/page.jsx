@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+
 "use client"
 
 import Image from "next/image"
@@ -5,7 +7,7 @@ import Button from "@mui/material/Button"
 
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react"
-import {Mousewheel, Pagination, Navigation} from "swiper/modules"
+import {Mousewheel, Navigation, Pagination} from "swiper/modules"
 
 import "swiper/css"
 
@@ -19,8 +21,14 @@ import Thumb1period from "./svg/periodCarousel/Thumbnail1.svg"
 import Thumb2period from "./svg/periodCarousel/Thumbnail2.svg"
 import Thumb3period from "./svg/periodCarousel/Thumbnail3.svg"
 import Thumb4period from "./svg/periodCarousel/Thumbnail4.svg"
-import Thumb5period from "./svg/periodCarousel/Thumbnail5.svg"
+// import Thumb5period from "./svg/periodCarousel/Thumbnail5.svg"
 import Thumb6period from "./svg/periodCarousel/Thumbnail6.svg"
+
+import CardLoopsider from "./svg/card_loopsider.svg"
+// import LoopsiderThumb1 from "./svg/loopsiderCarousel/Thumbnail1.svg"
+import CardPeriod from "./svg/card_period.svg"
+import CardHupster from "./svg/card_hupster.svg"
+import BilieEilish from "./svg/billieEilish.svg"
 
 // trusted brand logo
 import bpi from "../../../../public/img/svg/trustedBrands/bpi.svg"
@@ -43,12 +51,6 @@ import elleIphone from "../../../../public/img/svg/iphoneScreen/elle.svg"
 import carrefourIphone from "../../../../public/img/svg/iphoneScreen/carrefour.svg"
 import tele7joursIphone from "../../../../public/img/svg/iphoneScreen/tele7jours.svg"
 import uptousIphone from "../../../../public/img/svg/iphoneScreen/uptous.svg"
-
-import CardLoopsider from "./svg/card_loopsider.svg"
-// import LoopsiderThumb1 from "./svg/loopsiderCarousel/Thumbnail1.svg"
-import CardPeriod from "./svg/card_period.svg"
-import CardHupster from "./svg/card_hupster.svg"
-import BilieEilish from "./svg/billieEilish.svg"
 
 import logoWhite from "../../../../public/img/svg/loopsider_logo_blanc.svg"
 import hupsterLogoRounded from "../../../../public/img/svg/brandLogos/hupster_logo_rounded.svg"

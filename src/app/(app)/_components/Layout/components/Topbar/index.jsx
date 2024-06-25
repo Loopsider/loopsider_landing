@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-fragments */
 import * as React from "react"
-import {useState, useEffect} from "react"
+import {useEffect, useState} from "react"
 import Button from "@mui/material/Button"
 import {styled} from "@mui/material/styles"
 import Dialog from "@mui/material/Dialog"
@@ -11,6 +11,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import Image from "next/image"
 import "./NavBar.css"
 
+// @ts-ignore
 import logo from "../../../../../../../public/img/logo_loopsider.png"
 
 import UserForm from "../Form"
@@ -21,7 +22,7 @@ const BootstrapDialog = styled(Dialog)(({theme}) => ({
 	},
 }))
 
-export default function CustomizedDialogs({title, firstletter}) {
+export default function CustomizedDialogs() {
 	const [open, setOpen] = React.useState(false)
 	const [visible, setVisible] = useState(false)
 
