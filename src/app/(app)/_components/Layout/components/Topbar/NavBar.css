@@ -16,3 +16,11 @@
 .sticky-nav.visible {
     transform: translateY(0);
 }
+
+@media (max-width: 767px) {
+    .sticky-nav {
+        width: 90%;
+        left: 5%; 
+        right: 0%; 
+    }
+}

@@ -111,8 +111,8 @@ export default function HomePage() {
 				</div>
 			</div>
 			<div className="main-div-spacing-x main-div-spacing-y">
-				<div className="flex">
-					<h2 style={{color: "var(--black-text)"}} className="text-main-title flex-1 w-32 flex items-center">
+				<div className="flex md:flex-row flex-col">
+					<h2 style={{color: "var(--black-text)"}} className="md:mb-0 mb-5 text-main-title flex-1 md:w-32 w-full flex items-center">
 						Notre ambition
 					</h2>
 					<p style={{color: "var(--gray-text)"}} className="text-main flex-1 ...">
@@ -121,14 +121,14 @@ export default function HomePage() {
 					</p>
 				</div>
 				<div className="mt-5 main-div-spacing-y">
-					<div className="flex justify-center">
-						<Image className="mr-3" src={CardLoopsider} alt="Card Loopsider" />
-						<Image className="mr-3" src={CardPeriod} alt="Card Period" />
-						<Image className="mr-3" src={CardHupster} alt="Card Hupster" />
+					<div className="flex md:flex-row flex-col justify-center">
+						<Image className="bg-auto mr-3" src={CardLoopsider} alt="Card Loopsider" />
+						<Image className="bg-auto mr-3" src={CardPeriod} alt="Card Period" />
+						<Image className="bg-auto mr-3" src={CardHupster} alt="Card Hupster" />
 					</div>
 				</div>
 				<div className="main-div-spacing-x">
-					<div className="statistics-container justify-around flex">
+					<div className="statistics-container justify-around flex md:flex-row flex-col">
 						<div className="stat">
 							<h2 style={{color: "var(--black-text)"}} className="ml-4 text-main-title">
 								+150M
@@ -158,8 +158,8 @@ export default function HomePage() {
 				</div>
 			</div>
 			<div className="bg-[#100E0D] flex">
-				<div className="main-div-spacing-x-2 main-div-spacing-y mt-5 mb-5 flex">
-					<Image className="mr-20" src={BilieEilish} alt="Billie Eilish photo" />
+				<div className="main-div-spacing-x-2 main-div-spacing-y mt-5 mb-5 flex md:flex-row flex-col">
+					<Image className="bg-auto mr-20" src={BilieEilish} alt="Billie Eilish photo" />
 					<div className="flex flex-col justify-center m-5">
 						<h2 className="text-main-title text-white">Vidéo à la une</h2>
 						<h3 className="uppercase font-bold	mt-2" style={{color: "var(--green-loopsider)"}}>
@@ -188,7 +188,7 @@ export default function HomePage() {
 			</div>
 			<div className="main-div-spacing-y" style={{paddingBottom: "0"}}>
 				<div className="mb-5 flex flex-col main-div-spacing-x-2">
-					<div className="flex flex-col justify-center">
+					<div className="flex flex-col justify-center md:flex-wrap flex-wrap-reverse	">
 						<h2 className="text-main-title" style={{color: "var(--black-text)"}}>
 							Nos dernières vidéos
 						</h2>
@@ -274,7 +274,7 @@ export default function HomePage() {
 						modules={[Mousewheel, Pagination]}
 						slidesPerView={2}
 						spaceBetween={10}
-						mousewheel
+						// mousewheel
 						grabCursor
 						// onSlideChange={() => console.log("slide change")}
 						// onSwiper={(swiper) => console.log(swiper)}
@@ -354,11 +354,11 @@ export default function HomePage() {
 					</Swiper>
 				</div>
 				<div className="main-div-spacing-y main-div-spacing-x-2 flex justify-between">
-					<div className="flex items-center	">
+					<div className="md:flex hidden items-center">
 						<Image className="mr-5" src={hupsterLogoRounded} alt="hupsterLogoRounded" />
 						<p className="text-black text-2xl font-bold">Hupster, c’est aussi une newsletter</p>
 					</div>
-					<div className="">
+					<div className="md:flex hidden">
 						<Button
 							// onClick={handleClickOpen}
 							style={{
@@ -375,73 +375,77 @@ export default function HomePage() {
 						</Button>
 					</div>
 				</div>
-				<div className="main-div-spacing-y main-div-spacing-x-2 bg-[#100E0D] flex">
-					<div className="flex-auto w-32">
-						<h2 className="text-white text-main-title mb-5">Nos vidéos brand content</h2>
-						<p className="text-white">Nos produisons des contenus brand content originaux et impactants pour faire émerger de façon authentique sur les réseaux sociaux</p>
-						<div className="w-full mt-3">
-							<ButtonWhite text="Nous contacter" />
+				<div className=" bg-[#100E0D]">
+					<div className="main-div-spacing-y main-div-spacing-x-2 flex">
+						<div className="flex-auto md:w-32 w-full">
+							<h2 className="text-white text-main-title mb-5 md:text-left text-center">Nos vidéos brand content</h2>
+							<p className="text-white md:text-left text-center">
+								Nos produisons des contenus brand content originaux et impactants pour faire émerger de façon authentique sur les réseaux sociaux
+							</p>
+							<div className="w-full mt-3 flex md:justify-start justify-center	">
+								<ButtonWhite text="Nous contacter" />
+							</div>
 						</div>
+						<div className="md:flex flex-auto hidden md:w-32 w-full"> </div>
 					</div>
-					<div className="flex-auto w-32"> </div>
-				</div>
-				<div className="bg-[#100E0D] main-div-spacing-y-bot">
-					<Swiper
-						breakpoints={{
-							640: {
-								slidesPerView: 2,
-								spaceBetween: 10,
-							},
-							768: {
-								slidesPerView: 4,
-								spaceBetween: 10,
-							},
-							1024: {
-								slidesPerView: 6,
-								spaceBetween: 10,
-							},
-						}}
-						pagination={{
-							dynamicBullets: true,
-						}}
-						modules={[Mousewheel, Pagination]}
-						slidesPerView={2}
-						spaceBetween={10}
-						mousewheel
-						grabCursor
-						loop
-						// onSlideChange={() => console.log("slide change")}
-						// onSwiper={(swiper) => console.log(swiper)}
-						className="mySwiper"
-					>
-						<SwiperSlide>
-							<Image src={Thumb1period} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb2period} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb3period} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb3} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb4} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb5} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb4period} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb6period} alt="Thumb12" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb6period} alt="Thumb14" />
-						</SwiperSlide>
-					</Swiper>
+					<div className=" main-div-spacing-y-bot">
+						<Swiper
+							breakpoints={{
+								640: {
+									slidesPerView: 2,
+									spaceBetween: 10,
+								},
+								768: {
+									slidesPerView: 4,
+									spaceBetween: 10,
+								},
+								1024: {
+									slidesPerView: 6,
+									spaceBetween: 10,
+								},
+							}}
+							pagination={{
+								dynamicBullets: true,
+							}}
+							modules={[Mousewheel, Pagination]}
+							slidesPerView={2}
+							spaceBetween={10}
+							// mousewheel
+							grabCursor
+							loop
+							// onSlideChange={() => console.log("slide change")}
+							// onSwiper={(swiper) => console.log(swiper)}
+							className="mySwiper"
+						>
+							<SwiperSlide>
+								<Image src={Thumb1period} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb2period} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb3period} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb3} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb4} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb5} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb4period} alt="Thumb1" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb6period} alt="Thumb12" />
+							</SwiperSlide>
+							<SwiperSlide>
+								<Image src={Thumb6period} alt="Thumb14" />
+							</SwiperSlide>
+						</Swiper>
+					</div>
 				</div>
 				<div className="main-div-spacing-y">
 					<h3 className="text-2xl	font-bold text-center loop-black-text mb-12">Ils nous font confiance</h3>
@@ -466,7 +470,7 @@ export default function HomePage() {
 						modules={[Mousewheel, Pagination]}
 						slidesPerView={2}
 						spaceBetween={0}
-						mousewheel
+						// mousewheel
 						grabCursor
 						loop
 						className="mySwiper"
@@ -522,9 +526,9 @@ export default function HomePage() {
 						loop
 						className="mySwiper"
 					>
-						<SwiperSlide>
+						{/* <SwiperSlide>
 							<Image src={paribas} alt="bpi" />
-						</SwiperSlide>
+						</SwiperSlide> */}
 						<SwiperSlide>
 							<Image src={prime} alt="canal" />
 						</SwiperSlide>
@@ -546,43 +550,53 @@ export default function HomePage() {
 					</Swiper>
 				</div>
 				<div className="main-div-spacing-x main-div-spacing-y">
-					<div className="flex flex-col mb-11" style={{maxWidth: "50%"}}>
+					<div className="flex flex-col mb-11 md:w-32 w-full">
 						<h2 className="text-main-title mb-5 loop-black-text">Le studio Loopsider</h2>
 						<p className="text-lg loop-gray-text">
 							Nous imaginons et nous produisons des contenus en marque blanche pour les médias et les marques, de la vidéo unitaire jusqu’au brand media
 						</p>
 					</div>
-					<div className="statistics-container justify-between" style={{padding: "0"}}>
-						<div className="stat">
+					<div className="statistics-container justify-between flex md:flex-row flex-col" style={{padding: "0"}}>
+						<div className="stat md:w-32 w-full mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">+500</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								contenus produits chaque mois
 							</p>
 						</div>
-						<div className="stat">
+						<div className="stat  md:w-32 w-full mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">2,5 milliards</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								de vidéos vues par an
 							</p>
 						</div>
-						<div className="stat">
+						<div className="stat md:w-32 w-full mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">30M</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								de personnes touchées par mois
 							</p>
 						</div>
 					</div>
-					<div className="flex justify-between main-div-spacing-y">
-						<Image src={tele7joursIphone} alt="" />
-						<Image src={elleIphone} alt="" />
-						<Image src={carrefourIphone} alt="" />
-						<Image src={uptousIphone} alt="" />
+					<div className="lg:flex hidden flex-row justify-between main-div-spacing-y">
+						<Image className="h-full	" src={tele7joursIphone} alt="" />
+						<Image className="h-full" src={elleIphone} alt="" />
+						<Image className="h-full" src={carrefourIphone} alt="" />
+						<Image className="h-full" src={uptousIphone} alt="" />
+					</div>
+					<div className="lg:hidden flex flex-col flex-row">
+						<div className="flex justify-around w-full mt-5">
+							<Image style={{maxWidth: "150px"}} className="" src={tele7joursIphone} alt="" />
+							<Image style={{maxWidth: "150px"}} className="	" src={elleIphone} alt="" />
+						</div>
+						<div className="flex justify-around w-full mt-5">
+							<Image style={{maxWidth: "150px"}} className="	" src={carrefourIphone} alt="" />
+							<Image style={{maxWidth: "150px"}} className="	" src={uptousIphone} alt="" />
+						</div>
 					</div>
 				</div>
 				<div className="flex justify-center main-div-spacing-x main-div-spacing-y">
 					<div className="" style={{maxWidth: "50%"}}>
 						<h2 className="text-center text-main-title loop-black-text mb-11">Loopisder, certifié BCORP depuis 2022</h2>
-						<div className="flex content-center	">
+						<div className="flex md:flex-row flex-col content-center	">
 							<div className="text-lg	font-medium	pr-5">
 								<p className="mb-3">B Corp est l’un des labels les plus exigeants et reconnus pour la responsabilité des entreprises, attestant l’impact positif de Loopsider.</p>
 								<p className="mb-3">Nos valeurs éditoriales se reflètent au sein de notre entreprise et dans nos collaboration avec nos clients.</p>
@@ -592,8 +606,8 @@ export default function HomePage() {
 						</div>
 					</div>
 				</div>
-				<div className="bg-[#100E0D] main-div-spacing-x pt-20 pb-20 flex justify-between items-center	">
-					<h2 className="text-5xl	font-bold text-white">Réalisons votre projet</h2>
+				<div className="bg-[#100E0D] main-div-spacing-x md:pt-20 pt-11 md:pb-20 pb-11 flex md:flex-row flex-col justify-between md:items-center items-start">
+					<h2 className="md:text-5xl text-3xl	font-bold text-white">Réalisons votre projet</h2>
 					<div className="mt-3">
 						<ButtonWhite text="Nous contacter" />
 					</div>

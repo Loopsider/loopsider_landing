@@ -81,7 +81,6 @@ fieldset {
 .statistics-container {
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
@@ -89,6 +88,74 @@ fieldset {
   }
   
 .stat {
-    max-width: 50%;
     border-left: 4px solid #58EC94;
+}
+
+
+/* MEDIA */
+
+/* Styles for tablets (screen width between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .main-div-spacing-y {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .main-div-spacing-y-bot {
+        padding-bottom: 50px;
+    }
+    .main-div-spacing-x {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    
+    .main-div-spacing-x-left {
+        padding-left: 8%;
+    }
+}
+
+/* Styles for iPhones and small devices (screen width less than 768px) */
+@media (max-width: 767px) {
+    .main-div-spacing-y {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .main-div-spacing-y-bot {
+        padding-bottom: 30px;
+    }
+    .main-div-spacing-x {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+    
+    .main-div-spacing-x-left {
+        padding-left: 7%;
+    }
+}
+
+/* Styles for tablets (screen width between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .text-main-title {
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    .text-main {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+/* Styles for iPhones and small devices (screen width less than 768px) */
+@media (max-width: 767px) {
+    .text-main-title {
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    .text-main {
+        font-size: 14px;
+        line-height: 20px;
+    }
 }
