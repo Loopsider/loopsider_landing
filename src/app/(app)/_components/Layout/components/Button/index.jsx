@@ -39,7 +39,7 @@ export default function ButtonWhite({text}) {
 					textTransform: "none",
 					fontWeight: "bold",
 				}}
-				className="my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
+				className="md:w-44 sm:w-1/2 w-2/3 my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
 			>
 				{text}
 			</Button>

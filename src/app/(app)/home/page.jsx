@@ -39,7 +39,7 @@ import leboncoin from "../../../../public/img/svg/trustedBrands/leboncoin.svg"
 import loreal from "../../../../public/img/svg/trustedBrands/loreal.svg"
 import meta from "../../../../public/img/svg/trustedBrands/meta.svg"
 import netflix from "../../../../public/img/svg/trustedBrands/netflix.svg"
-import paribas from "../../../../public/img/svg/trustedBrands/paribas.svg"
+// import paribas from "../../../../public/img/svg/trustedBrands/paribas.svg"
 import prime from "../../../../public/img/svg/trustedBrands/prime.svg"
 import sncf from "../../../../public/img/svg/trustedBrands/sncf.svg"
 import tinder from "../../../../public/img/svg/trustedBrands/tinder.svg"
@@ -75,22 +75,11 @@ import ButtonBlack from "../_components/Layout/components/ButtonBlack"
 export default function HomePage() {
 	return (
 		<>
-			<div
-				className="p-5 w-full flex md:flex-row flex-col md:items-start items-center"
-				style={{
-					backgroundImage: `url(/img/loopsider_main_bg.png)`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					width: "100%",
-					height: "100vh",
-					maxHeight: "800px",
-					padding: "0 5%",
-				}}
-			>
-				<div className="h-full">
-					<div className="h-full flex justify-center items-center	flex-col">
-						<Image src={logoWhite} alt="dashboard" className=" w-full mb-3" />
-						<div className="flex w-full mb-8">
+			<div className="bg-image p-5 w-full flex md:flex-row flex-col md:items-start items-center">
+				<div className="h-full w-full">
+					<div className="h-full flex md:justify-center justify-end items-center	flex-col">
+						<Image src={logoWhite} alt="dashboard" className="flex justify-start w-full mb-3" />
+						<div className="flex md:justify-start justify-center w-full mb-8">
 							<Image src={fbLogo} alt="facebook logo" className="mr-3" />
 							<Image src={igLogo} alt="instagram logo" className="mr-3" />
 							<Image src={tkLogo} alt="tiktok logo" className="mr-3" />
@@ -99,18 +88,32 @@ export default function HomePage() {
 							<Image src={inLogo} alt="linkedin logo" className="mr-3" />
 							<Image src={xLogo} alt="x logo" className="" />
 						</div>
-						<h1 className="text-main-title  w-full">Regarder,</h1>
-						<h1 className="text-main-title  w-full">Comprendre,</h1>
-						<h1 className="text-main-title w-full" style={{color: "var(--green-loopsider)"}}>
-							Partager
-						</h1>
-						<div className="w-full mt-3">
+						<div className="md:flex hidden flex-col w-full">
+							<h1 className="text-main-title  w-full">Regarder,</h1>
+							<h1 className="text-main-title  w-full">Comprendre,</h1>
+							<h1 className="text-main-title w-full" style={{color: "var(--green-loopsider)"}}>
+								Partager
+							</h1>
+						</div>
+						<div className="flex md:hidden ">
+							<h1 className="text-main-title text-center">
+								Regarder, Comprendre,{" "}
+								<span className="text-main-title" style={{color: "var(--green-loopsider)"}}>
+									Partager
+								</span>
+							</h1>
+						</div>
+
+						<div className="w-full flex md:justify-start justify-center mt-3">
 							<ButtonWhite text="Nous contacter" />
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="main-div-spacing-x main-div-spacing-y">
+				<div className="md:hidden flex text-lg font-bold" style={{color: "var(--green-loopsider)"}}>
+					LOOPSIDER
+				</div>
 				<div className="flex md:flex-row flex-col">
 					<h2 style={{color: "var(--black-text)"}} className="md:mb-0 mb-5 text-main-title flex-1 md:w-32 w-full flex items-center">
 						Notre ambition
@@ -120,8 +123,8 @@ export default function HomePage() {
 						monde qui nous entoure
 					</p>
 				</div>
-				<div className="mt-5 main-div-spacing-y">
-					<div className="flex md:flex-row flex-col justify-center">
+				<div className="flex justify-center mt-5 main-div-spacing-y">
+					<div className="flex lg:flex-row flex-col justify-center">
 						<Image className="bg-auto mr-3" src={CardLoopsider} alt="Card Loopsider" />
 						<Image className="bg-auto mr-3" src={CardPeriod} alt="Card Period" />
 						<Image className="bg-auto mr-3" src={CardHupster} alt="Card Hupster" />
