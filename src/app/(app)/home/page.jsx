@@ -78,7 +78,9 @@ export default function HomePage() {
 			<div className="bg-image p-5 w-full flex md:flex-row flex-col md:items-start items-center">
 				<div className="h-full w-full">
 					<div className="h-full flex md:justify-center justify-end items-center	flex-col">
-						<Image src={logoWhite} alt="dashboard" className="flex justify-start w-full mb-3" />
+						<div className="flex w-full md:justify-start justify-center">
+							<Image src={logoWhite} alt="dashboard" className=" mb-3" />
+						</div>
 						<div className="flex md:justify-start justify-center w-full mb-8">
 							<Image src={fbLogo} alt="facebook logo" className="mr-3" />
 							<Image src={igLogo} alt="instagram logo" className="mr-3" />
