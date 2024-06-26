@@ -133,7 +133,7 @@ export default function HomePage() {
 					</div>
 				</div>
 				<div className="main-div-spacing-x">
-					<div className="statistics-container justify-around flex md:flex-row flex-col">
+					<div className="statistics-container md:items-center items-start justify-around flex md:flex-row flex-col ">
 						<div className="stat">
 							<h2 style={{color: "var(--black-text)"}} className="ml-4 text-main-title">
 								+150M
@@ -150,7 +150,7 @@ export default function HomePage() {
 								de français touchés par jours
 							</p>
 						</div>
-						<div className="stat">
+						<div className="stat md:mb-0 mb-5">
 							<h2 style={{color: "var(--black-text)"}} className="ml-4 text-main-title">
 								7,3M
 							</h2>
@@ -158,43 +158,67 @@ export default function HomePage() {
 								de followers
 							</p>
 						</div>
-						<ButtonBlack />
+						<div className="md:flex hidden">
+							<ButtonBlack />
+						</div>
+
+						<div className="md:hidden justify-center flex w-full">
+							<Button
+								// onClick={handleClickOpen}
+								style={{
+									backgroundColor: "black",
+									color: "white",
+									borderRadius: "50px",
+									padding: "10px 20px",
+									textTransform: "none",
+									fontWeight: "bold",
+								}}
+								className="my-4 w-3/4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
+							>
+								Nous contacter
+							</Button>{" "}
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className="bg-[#100E0D] flex">
-				<div className="main-div-spacing-x-2 main-div-spacing-y mt-5 mb-5 flex md:flex-row flex-col">
-					<Image className="bg-auto mr-20" src={BilieEilish} alt="Billie Eilish photo" />
+				<div className="main-div-spacing-x-2 main-div-spacing-y mt-5 mb-5 flex md:flex-row flex-col items-center">
+					<Image className="bg-auto md:mr-20 mr-0" src={BilieEilish} alt="Billie Eilish photo" />
 					<div className="flex flex-col justify-center m-5">
-						<h2 className="text-main-title text-white">Vidéo à la une</h2>
-						<h3 className="uppercase font-bold	mt-2" style={{color: "var(--green-loopsider)"}}>
-							I comme icone
-						</h3>
-						<p className="text-lg mt-5 text-white font-extralight">
+						<div className="flex flex-col flex-col-reverse md:text-start text-center">
+							<h2 className="text-main-title text-white">Vidéo à la une</h2>
+							<h3 className="uppercase font-bold mt-2 mb:mb-0 mb-4" style={{color: "var(--green-loopsider)"}}>
+								I comme icone
+							</h3>
+						</div>
+
+						<p className="md:text-start text-center text-lg mt-5 text-white font-extralight">
 							En 5 ans, elle est devenue l’un des artistes les plus influentes de sa générations. À 22 ans, elle revient déjà avec un 3 album. Voici l’histoire de la prodigieuse Billie
 							Eilish
 						</p>
-						<Button
-							// onClick={handleClickOpen}
-							style={{
-								backgroundColor: "white",
-								color: "black",
-								borderRadius: "50px",
-								padding: "10px 20px",
-								textTransform: "none",
-								maxWidth: "220px",
-							}}
-							className="text-lg my-4 mt-5 text-white hover:scale-105 duration-200 font-bold py-2 px-4 rounded-lg"
-						>
-							Découvrir la vidéo
-						</Button>
+						<div className="flex md:justify-start justify-center w-full mt-2">
+							<Button
+								// onClick={handleClickOpen}
+								style={{
+									backgroundColor: "white",
+									color: "black",
+									borderRadius: "50px",
+									padding: "10px 20px",
+									textTransform: "none",
+									maxWidth: "220px",
+								}}
+								className=" w-full text-lg my-4 mt-5 text-white hover:scale-105 duration-200 font-bold py-2 px-4 rounded-lg"
+							>
+								Découvrir la vidéo
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className="main-div-spacing-y" style={{paddingBottom: "0"}}>
 				<div className="mb-5 flex flex-col main-div-spacing-x-2">
-					<div className="flex flex-col justify-center md:flex-wrap flex-wrap-reverse	">
-						<h2 className="text-main-title" style={{color: "var(--black-text)"}}>
+					<div className="flex flex-col justify-center">
+						<h2 className="text-main-title mt-3" style={{color: "var(--black-text)"}}>
 							Nos dernières vidéos
 						</h2>
 						<Image className="mb-5 mt-10" src={LoopsiderLogoGreen} alt="loopsider logo green" />
@@ -599,22 +623,24 @@ export default function HomePage() {
 					</div>
 				</div>
 				<div className="flex justify-center main-div-spacing-x main-div-spacing-y">
-					<div className="" style={{maxWidth: "50%"}}>
+					<div className="md:w-1/2 w-full">
 						<h2 className="text-center text-main-title loop-black-text mb-11">Loopisder, certifié BCORP depuis 2022</h2>
-						<div className="flex md:flex-row flex-col content-center	">
-							<div className="text-lg	font-medium	pr-5">
+						<div className="flex md:flex-row flex-col content-center mb-5">
+							<div className="text-lg	font-medium	md:pr-5 pr-0">
 								<p className="mb-3">B Corp est l’un des labels les plus exigeants et reconnus pour la responsabilité des entreprises, attestant l’impact positif de Loopsider.</p>
 								<p className="mb-3">Nos valeurs éditoriales se reflètent au sein de notre entreprise et dans nos collaboration avec nos clients.</p>
 								<p className="mb-3">Seulement 300 entreprises en France sont certifiées à ce jour.</p>
 							</div>
-							<Image className="m-4" src={bCorpLogo} alt="bCorpLogo" />
+							<div className="flex w-full justify-center">
+								<Image className="m-4" src={bCorpLogo} alt="bCorpLogo" />
+							</div>
 						</div>
 					</div>
 				</div>
-				<div className="bg-[#100E0D] main-div-spacing-x md:pt-20 pt-11 md:pb-20 pb-11 flex md:flex-row flex-col justify-between md:items-center items-start">
-					<h2 className="md:text-5xl text-3xl	font-bold text-white">Réalisons votre projet</h2>
-					<div className="mt-3">
-						<ButtonWhite text="Nous contacter" />
+				<div className="bg-[#100E0D] main-div-spacing-x md:pt-20 pt-9 md:pb-20 pb-9 flex md:flex-row flex-col justify-between md:items-center items-start">
+					<h2 className="md:text-5xl  text-3xl font-bold text-white">Réalisons votre projet</h2>
+					<div className="md:mt-3 mt-5 w-full">
+						<ButtonWhite text="Contactez-nous" />
 					</div>
 				</div>
 			</div>
