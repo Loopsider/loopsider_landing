@@ -2,14 +2,20 @@
 
 "use client"
 
+import React from "react"
+import {useEffect, useState} from "react"
+
 import Image from "next/image"
 import Button from "@mui/material/Button"
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 
 // Import Swiper React components
-import {Swiper, SwiperSlide} from "swiper/react"
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react"
 import {Mousewheel, Navigation, Pagination} from "swiper/modules"
 
 import "swiper/css"
+import "swiper/css/navigation"
 
 import Thumb1 from "./svg/loopsiderCarousel/Thumbnail1.svg"
 import Thumb2 from "./svg/loopsiderCarousel/Thumbnail2.svg"
@@ -40,11 +46,11 @@ import loreal from "../../../../public/img/svg/trustedBrands/loreal.svg"
 import meta from "../../../../public/img/svg/trustedBrands/meta.svg"
 import netflix from "../../../../public/img/svg/trustedBrands/netflix.svg"
 // import paribas from "../../../../public/img/svg/trustedBrands/paribas.svg"
-import prime from "../../../../public/img/svg/trustedBrands/prime.svg"
-import sncf from "../../../../public/img/svg/trustedBrands/sncf.svg"
-import tinder from "../../../../public/img/svg/trustedBrands/tinder.svg"
-import universal from "../../../../public/img/svg/trustedBrands/universal.svg"
-import veolia from "../../../../public/img/svg/trustedBrands/veolia.svg"
+// import prime from "../../../../public/img/svg/trustedBrands/prime.svg"
+// import sncf from "../../../../public/img/svg/trustedBrands/sncf.svg"
+// import tinder from "../../../../public/img/svg/trustedBrands/tinder.svg"
+// import universal from "../../../../public/img/svg/trustedBrands/universal.svg"
+// import veolia from "../../../../public/img/svg/trustedBrands/veolia.svg"
 
 // iphone type svg
 import elleIphone from "../../../../public/img/svg/iphoneScreen/elle.svg"
@@ -69,10 +75,38 @@ import PeriodLogo from "../../../../public/img/svg/brandLogos/period_logo.svg"
 
 import ButtonWhite from "../_components/Layout/components/Button"
 import ButtonBlack from "../_components/Layout/components/ButtonBlack"
-// import Dashboard from "./svg/dashboard-home.svg";
-// import BasicModal from "../_components/Layout/components/Button";
+import {env} from "../../../configs/env"
+
+const SwiperButtonNext = ({color1 = "black"}) => {
+	const swiper = useSwiper()
+	return <ArrowForwardIcon style={{color: color1}} className="cursor-pointer " onClick={() => swiper.slideNext()} />
+}
+const SwiperButtonPrev = ({color1 = "black"}) => {
+	const swiper = useSwiper()
+	return <ArrowBackIcon style={{color: color1}} className="cursor-pointer " onClick={() => swiper.slidePrev()} />
+}
 
 export default function HomePage() {
+	const [dataLoopsider, setDataLoopsider] = useState([])
+
+	const endpointLoop = "/api/loopsider"
+	const urlLoop = `${env.BASE_URL}${endpointLoop}`
+	useEffect(() => {
+		async function fetchLoopsiderData() {
+			const response = await fetch(urlLoop, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+
+			const result = await response.json()
+			setDataLoopsider(result.data)
+		}
+
+		fetchLoopsiderData()
+	}, [])
+
 	return (
 		<>
 			<div className="bg-image p-5 w-full flex md:flex-row flex-col md:items-start items-center">
@@ -82,13 +116,35 @@ export default function HomePage() {
 							<Image src={logoWhite} alt="dashboard" className=" mb-3" />
 						</div>
 						<div className="flex md:justify-start justify-center w-full mb-8">
-							<Image src={fbLogo} alt="facebook logo" className="mr-3" />
-							<Image src={igLogo} alt="instagram logo" className="mr-3" />
-							<Image src={tkLogo} alt="tiktok logo" className="mr-3" />
-							<Image src={scLogo} alt="snapchat logo" className="mr-3" />
-							<Image src={ytLogo} alt="youtube logo" className="mr-3" />
-							<Image src={inLogo} alt="linkedin logo" className="mr-3" />
-							<Image src={xLogo} alt="x logo" className="" />
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.facebook.com/Loopsider" rel="noreferrer">
+								<Image src={fbLogo} alt="facebook logo" className="mr-3" />
+							</a>
+
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.instagram.com/loopsider" rel="noreferrer">
+								<Image src={igLogo} alt="instagram logo" className="mr-3" />
+							</a>
+
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.tiktok.com/@loopsider" rel="noreferrer">
+								<Image src={tkLogo} alt="tiktok logo" className="mr-3" />
+							</a>
+							<a
+								target="_blank"
+								className="link-underline-black hover:scale-105 duration-200"
+								href="https://www.snapchat.com/p/37b40764-f5da-4fc3-8326-c8ebf26c3973/1147134081357824"
+								rel="noreferrer"
+							>
+								<Image src={scLogo} alt="snapchat logo" className="mr-3" />
+							</a>
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.youtube.com/c/loopsider" rel="noreferrer">
+								<Image src={ytLogo} alt="youtube logo" className="mr-3" />
+							</a>
+
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.linkedin.com/company/loopsider" rel="noreferrer">
+								<Image src={inLogo} alt="linkedin logo" className="mr-3" />
+							</a>
+							<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://x.com/loopsidernews?lang=en" rel="noreferrer">
+								<Image src={xLogo} alt="x logo" className="" />
+							</a>
 						</div>
 						<div className="md:flex hidden flex-col w-full">
 							<h1 className="text-main-title  w-full">Regarder,</h1>
@@ -198,7 +254,6 @@ export default function HomePage() {
 						</p>
 						<div className="flex md:justify-start justify-center w-full mt-2">
 							<Button
-								// onClick={handleClickOpen}
 								style={{
 									backgroundColor: "white",
 									color: "black",
@@ -209,7 +264,9 @@ export default function HomePage() {
 								}}
 								className=" w-full text-lg my-4 mt-5 text-white hover:scale-105 duration-200 font-bold py-2 px-4 rounded-lg"
 							>
-								Découvrir la vidéo
+								<a target="_blank" href="/" rel="noreferrer">
+									Découvrir la vidéo
+								</a>
 							</Button>
 						</div>
 					</div>
@@ -247,33 +304,24 @@ export default function HomePage() {
 						modules={[Mousewheel, Pagination, Navigation]}
 						slidesPerView={2}
 						spaceBetween={10}
-						grabCursor
-						// mousewheel
-						// onSlideChange={() => console.log("slide change")}
-						// onSwiper={(swiper) => console.log(swiper)}
 						className="mySwiper"
 					>
-						<SwiperSlide>
-							<Image src={Thumb1} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb2} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb3} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb4} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb5} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb1} alt="Thumb1" />
-						</SwiperSlide>
-						<SwiperSlide>
-							<Image src={Thumb1} alt="Thumb1" />
-						</SwiperSlide>
+						<div className="mt-4 main-div-spacing-x space-x-5 flex justify-end">
+							<SwiperButtonPrev />
+							<SwiperButtonNext />
+						</div>
+						{Array.isArray(dataLoopsider) &&
+							dataLoopsider.map((item, index) => (
+								<SwiperSlide key={index}>
+									<Image
+										className=""
+										width={200}
+										height={350}
+										src={item.storage_thumbnail ? `${process.env.NEXT_PUBLIC_GOOGLE_CDN}/${item.storage_thumbnail}` : ""}
+										alt={item.account_name}
+									/>
+								</SwiperSlide>
+							))}
 					</Swiper>
 				</div>
 				<div className="mb-5 flex flex-col main-div-spacing-x-2">
@@ -309,6 +357,10 @@ export default function HomePage() {
 						// onSwiper={(swiper) => console.log(swiper)}
 						className="mySwiper"
 					>
+						<div className="mt-4 main-div-spacing-x space-x-5 flex justify-end">
+							<SwiperButtonPrev />
+							<SwiperButtonNext />
+						</div>
 						<SwiperSlide>
 							<Image src={Thumb1period} alt="Thumb1" />
 						</SwiperSlide>
@@ -362,6 +414,10 @@ export default function HomePage() {
 						// onSwiper={(swiper) => console.log(swiper)}
 						className="mySwiper"
 					>
+						<div className="mt-4 main-div-spacing-x space-x-5 flex justify-end">
+							<SwiperButtonPrev />
+							<SwiperButtonNext />
+						</div>
 						<SwiperSlide>
 							<Image src={Thumb1period} alt="Thumb1" />
 						</SwiperSlide>
@@ -388,20 +444,21 @@ export default function HomePage() {
 						<p className="text-black text-2xl font-bold">Hupster, c’est aussi une newsletter</p>
 					</div>
 					<div className="md:flex hidden">
-						<Button
-							// onClick={handleClickOpen}
-							style={{
-								backgroundColor: "black",
-								color: "white",
-								borderRadius: "50px",
-								padding: "10px 20px",
-								textTransform: "none",
-								fontWeight: "bold",
-							}}
-							className="my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
-						>
-							Je m&apos;abonne
-						</Button>
+						<a rel="noreferrer" target="_blank" href="https://hupster.kessel.media/posts?subscribe=true&priceId=price_free">
+							<Button
+								style={{
+									backgroundColor: "black",
+									color: "white",
+									borderRadius: "50px",
+									padding: "10px 20px",
+									textTransform: "none",
+									fontWeight: "bold",
+								}}
+								className="my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
+							>
+								Je m&apos;abonne
+							</Button>
+						</a>
 					</div>
 				</div>
 				<div className=" bg-[#100E0D]">
@@ -439,13 +496,15 @@ export default function HomePage() {
 							modules={[Mousewheel, Pagination]}
 							slidesPerView={2}
 							spaceBetween={10}
-							// mousewheel
-							grabCursor
 							loop
 							// onSlideChange={() => console.log("slide change")}
 							// onSwiper={(swiper) => console.log(swiper)}
 							className="mySwiper"
 						>
+							<div className="mt-4 main-div-spacing-x space-x-5 flex justify-end">
+								<SwiperButtonPrev color1="white" />
+								<SwiperButtonNext color1="white" />
+							</div>
 							<SwiperSlide>
 								<Image src={Thumb1period} alt="Thumb1" />
 							</SwiperSlide>
@@ -555,50 +614,53 @@ export default function HomePage() {
 						loop
 						className="mySwiper"
 					>
-						{/* <SwiperSlide>
-							<Image src={paribas} alt="bpi" />
-						</SwiperSlide> */}
 						<SwiperSlide>
-							<Image src={prime} alt="canal" />
+							<Image src={bpi} alt="bpi" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={sncf} alt="sncf" />
+							<Image src={canal} alt="canal" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={tinder} alt="tinder" />
+							<Image src={citeo} alt="citeo" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={universal} alt="leboncoin" />
+							<Image src={deezer} alt="deezer" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={veolia} alt="veolia" />
+							<Image src={leboncoin} alt="leboncoin" />
+						</SwiperSlide>
+						<SwiperSlide>
+							<Image src={loreal} alt="Thumb1" />
 						</SwiperSlide>
 						<SwiperSlide>
 							<Image src={meta} alt="Thumb1" />
 						</SwiperSlide>
+						<SwiperSlide>
+							<Image src={netflix} alt="Thumb12" />
+						</SwiperSlide>
 					</Swiper>
 				</div>
 				<div className="main-div-spacing-x main-div-spacing-y">
-					<div className="flex flex-col mb-11 md:w-32 w-full">
+					<div className="flex flex-col mb-11 width50">
 						<h2 className="text-main-title mb-5 loop-black-text">Le studio Loopsider</h2>
 						<p className="text-lg loop-gray-text">
 							Nous imaginons et nous produisons des contenus en marque blanche pour les médias et les marques, de la vidéo unitaire jusqu’au brand media
 						</p>
 					</div>
 					<div className="statistics-container justify-between flex md:flex-row flex-col" style={{padding: "0"}}>
-						<div className="stat md:w-32 w-full mb-5">
+						<div className="stat mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">+500</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								contenus produits chaque mois
 							</p>
 						</div>
-						<div className="stat  md:w-32 w-full mb-5">
+						<div className="stat  mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">2,5 milliards</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								de vidéos vues par an
 							</p>
 						</div>
-						<div className="stat md:w-32 w-full mb-5">
+						<div className="stat mb-5">
 							<h2 className="ml-4 text-main-title loop-black-text">30M</h2>
 							<p style={{color: "var(--gray-text)"}} className="ml-4 text-main ">
 								de personnes touchées par mois
@@ -606,25 +668,25 @@ export default function HomePage() {
 						</div>
 					</div>
 					<div className="lg:flex hidden flex-row justify-between main-div-spacing-y">
-						<Image className="h-full	" src={tele7joursIphone} alt="" />
-						<Image className="h-full" src={elleIphone} alt="" />
-						<Image className="h-full" src={carrefourIphone} alt="" />
 						<Image className="h-full" src={uptousIphone} alt="" />
+						<Image className="h-full" src={elleIphone} alt="" />
+						<Image className="h-full" src={tele7joursIphone} alt="" />
+						<Image className="h-full" src={carrefourIphone} alt="" />
 					</div>
 					<div className="lg:hidden flex flex-col flex-row">
 						<div className="flex justify-around w-full mt-5">
-							<Image style={{maxWidth: "150px"}} className="" src={tele7joursIphone} alt="" />
+							<Image style={{maxWidth: "150px"}} className="	" src={uptousIphone} alt="" />
 							<Image style={{maxWidth: "150px"}} className="	" src={elleIphone} alt="" />
 						</div>
 						<div className="flex justify-around w-full mt-5">
+							<Image style={{maxWidth: "150px"}} className="" src={tele7joursIphone} alt="" />
 							<Image style={{maxWidth: "150px"}} className="	" src={carrefourIphone} alt="" />
-							<Image style={{maxWidth: "150px"}} className="	" src={uptousIphone} alt="" />
 						</div>
 					</div>
 				</div>
 				<div className="flex justify-center main-div-spacing-x main-div-spacing-y">
 					<div className="md:w-1/2 w-full">
-						<h2 className="text-center text-main-title loop-black-text mb-11">Loopisder, certifié BCORP depuis 2022</h2>
+						<h2 className="text-center text-main-title loop-black-text mb-11">Loopsider, certifié BCORP depuis 2022</h2>
 						<div className="flex md:flex-row flex-col content-center mb-5">
 							<div className="text-lg	font-medium	md:pr-5 pr-0">
 								<p className="mb-3">B Corp est l’un des labels les plus exigeants et reconnus pour la responsabilité des entreprises, attestant l’impact positif de Loopsider.</p>
@@ -638,8 +700,8 @@ export default function HomePage() {
 					</div>
 				</div>
 				<div className="bg-[#100E0D] main-div-spacing-x md:pt-20 pt-9 md:pb-20 pb-9 flex md:flex-row flex-col justify-between md:items-center items-start">
-					<h2 className="md:text-5xl  text-3xl font-bold text-white">Réalisons votre projet</h2>
-					<div className="md:mt-3 mt-5 w-full">
+					<h2 className="md:text-5xl text-3xl font-bold text-white">Réalisons votre projet</h2>
+					<div className="flex md:justify-end justify-start md:mt-3 mt-5 md:w-1/2 w-full">
 						<ButtonWhite text="Contactez-nous" />
 					</div>
 				</div>

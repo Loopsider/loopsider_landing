@@ -18,21 +18,20 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(request) {
 	try {
-		const {firstName, lastName, email, phone, country, job, company} = await request.json()
+		const {lastName, email, text} = await request.json()
 
 		const mailOption = {
 			from: email,
-			to: "agathe@loopsider.com",
-			cc: "tech@loopsider.com",
-			subject: "Demande de démo",
+			to: "romain@loopsider.com",
+			// cc: "tech@loopsider.com",
+			subject: "Email de la part de " + lastName,
 			html: `
-			<h3>Nouvelle demande de démo de la part de ${firstName} ${lastName} </h3>
-			<p>Voici les informations de la personne:</p>
-			<li> Téléphone: ${phone} </li>
-			<li> Travail: ${job} </li>
-			<li> Société: ${company}</li>
+			<h3>${lastName} vous a contacté</h3>
+			<h2>Voici le message:</h2>
+			<p>${text}</p>
+			<p>Voici les informations supplémentaires:</p>
 			<li> Email: ${email}</li>
-			<li> Pays: ${country}</li>`,
+			`,
 		}
 
 		await transporter.sendMail(mailOption)

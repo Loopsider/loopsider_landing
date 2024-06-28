@@ -65,7 +65,7 @@ export default function ButtonWhite({text}) {
 					sx={{
 						position: "absolute",
 						right: 38,
-						top: 38,
+						top: 30,
 					}}
 				>
 					<CloseIcon />
@@ -78,7 +78,6 @@ export default function ButtonWhite({text}) {
 					}}
 				>
 					<UserForm handleClose={handleClose} />
-					{/* <Image className="md:flex hidden" src={contactIphone} alt="contact image" /> */}
 				</DialogContent>
 			</BootstrapDialog>
 		</React.Fragment>

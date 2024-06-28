@@ -70,11 +70,8 @@ const Footer = () => (
 				</a>
 			</div>
 
-			<div className="flex flex-col md:mt-0 mt-5">
+			{/* <div className="flex flex-col md:mt-0 mt-5">
 				<p className="font-bold mb-4">S’abonner à notre newsletter</p>
-				{/* <a rel="noreferrer" href="mailto:jamie@fakeemail.com" target="_blank" className=" pb-4 loop-gray-text link-underline link-underline-black font-semibold">
-					Adresse email
-				</a> */}
 				<TextField fullWidth className="mb-4" id="outlined-basic" label="Adresse email" variant="standard" />
 
 				<Button
@@ -87,14 +84,13 @@ const Footer = () => (
 						fontWeight: "bold",
 						border: "none",
 					}}
-					// onClick={handleClickOpen}
 				>
 					Je m&apos;abonne
 				</Button>
-			</div>
+			</div> */}
 
 			<div className="md:flex hidden flex-col space-x-9">
-				<p className="link-underline link-underline-black hover:scale-105 duration-200 font-semibold">Articles</p>
+				<p className="link-underline link-underline-black font-semibold">Articles</p>
 				<a className="loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/info" rel="noreferrer">
 					Derniers Articles
 				</a>

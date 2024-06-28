@@ -4,24 +4,15 @@ import {Button, Card, CardActions, CardContent, Grid} from "@mui/material"
 import {Field, Form, Formik} from "formik"
 import * as Yup from "yup"
 import {TextField} from "formik-material-ui"
-import CountryForm from "./countryForm"
 import {env} from "../../../../../../configs/env"
 
 const initialValues = {
-	firstName: "",
 	lastName: "",
-	job: "",
-	company: "",
 	email: "",
-	phone: "",
-	country: "",
+	text: "",
 }
 
 const validationSchema = Yup.object().shape({
-	firstName: Yup.string().required("Required"),
-	phone: Yup.string()
-		.matches(/(?=.{10,})/, "Doit contenir 10 caractères !")
-		.required("Required"),
 	lastName: Yup.string().required("Required"),
 	email: Yup.string().email("Invalid email").required("Required"),
 })
@@ -36,13 +27,9 @@ const UserForm = ({handleClose}) => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				firstName: values.firstName,
 				lastName: values.lastName,
 				email: values.email,
-				job: values.job,
-				company: values.company,
-				phone: values.phone,
-				country: values.country,
+				text: values.text,
 			}),
 		})
 		handleClose()
@@ -53,37 +40,25 @@ const UserForm = ({handleClose}) => {
 			<Grid item md={6}>
 				<Card>
 					<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-						{({values, setFieldValue}) => {
+						{({values}) => {
 							return (
 								<Form className="shadow-white">
 									<CardContent>
 										<div className="flex md:flex-row flex-col md:space-x-5 md:space-y-0 space-y-5">
 											<div className="space-y-5">
 												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre prénom" variant="outlined" fullWidth name="firstName" value={values.firstName} component={TextField} />
-												</Grid>
-												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre email profesionnel" variant="outlined" fullWidth name="email" value={values.email} component={TextField} />
-												</Grid>
-												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre entreprise" variant="outlined" fullWidth name="company" value={values.company} component={TextField} />
+													<Field label="Votre Nom" variant="outlined" fullWidth name="lastName" component={TextField} />
 												</Grid>
 											</div>
 											<div className="space-y-5">
 												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre Nom" variant="outlined" fullWidth name="lastName" value={values.lastName} component={TextField} />
-												</Grid>
-												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre téléphone" variant="outlined" fullWidth name="phone" value={values.phone} component={TextField} />
-												</Grid>
-												<Grid item xs={12} sm={6} md={6}>
-													<Field label="Votre fonction" variant="outlined" fullWidth name="job" value={values.job} component={TextField} />
+													<Field label="Votre email professionnel" variant="outlined" fullWidth name="email" component={TextField} />
 												</Grid>
 											</div>
 										</div>
-										<div className="flex">
-											<Grid item xs={12} sm={6} md={6} className="w-full mt-5">
-												<CountryForm values={values} setFieldValue={setFieldValue} />
+										<div className="mt-5">
+											<Grid item xs={12} sm={12} md={12}>
+												<Field label="Votre texte" variant="outlined" fullWidth name="text" component={TextField} multiline rows={4} maxRows={8} />
 											</Grid>
 										</div>
 									</CardContent>
@@ -91,10 +66,17 @@ const UserForm = ({handleClose}) => {
 										<Button
 											autoFocus
 											type="submit"
-											style={{backgroundColor: "var(--pink-color)"}}
+											style={{
+												backgroundColor: "black",
+												color: "white",
+												borderRadius: "50px",
+												padding: "10px 20px",
+												textTransform: "none",
+												fontWeight: "bold",
+											}}
 											className="my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg"
 										>
-											C<span className="lowercase">ontacter un de nos experts</span>
+											Contacter un de nos experts
 										</Button>
 									</CardActions>
 								</Form>

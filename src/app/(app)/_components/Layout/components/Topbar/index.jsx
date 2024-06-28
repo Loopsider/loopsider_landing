@@ -68,11 +68,6 @@ export default function CustomizedDialogs() {
 				</Button>
 			</div>
 
-			{/* <Button onClick={handleClickOpen} style={{backgroundColor: "var(--pink-color)"}} className="my-4 text-white hover:scale-105 duration-200 font-semibold py-2 px-4 rounded-lg">
-				{firstletter}
-				<div className="lowercase">{title}</div>
-			</Button> */}
-
 			<BootstrapDialog
 				onClose={handleClose}
 				aria-labelledby="customized-dialog-title"
@@ -86,7 +81,7 @@ export default function CustomizedDialogs() {
 				}}
 			>
 				<DialogTitle className="md:pl-9 p-0" sx={{m: 0, p: 2, pl: "56px"}} id="customized-dialog-title">
-					<p className="font-semibold text-2xl md:text-left text-center">Demander une démo</p>
+					<p className="font-semibold text-2xl md:text-left text-center">Nous contacter</p>
 				</DialogTitle>
 				<IconButton
 					aria-label="close"
@@ -108,7 +103,6 @@ export default function CustomizedDialogs() {
 					}}
 				>
 					<UserForm handleClose={handleClose} />
-					{/* <Image className="md:flex hidden" src={contactIphone} alt="contact image" /> */}
 				</DialogContent>
 			</BootstrapDialog>
 		</React.Fragment>
