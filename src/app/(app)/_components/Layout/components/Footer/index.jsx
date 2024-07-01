@@ -91,11 +91,20 @@ const Footer = () => (
 
 			<div className="md:flex hidden flex-col space-x-9">
 				<p className="link-underline link-underline-black font-semibold">Articles</p>
-				<a className="loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/info" rel="noreferrer">
-					Derniers Articles
+				<a className="pt-3 loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/articles/1" rel="noreferrer">
+					Le mariage musulmant
 				</a>
-				<a className="loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/info" rel="noreferrer">
-					...
+				<a className="pt-3 loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/articles/2" rel="noreferrer">
+					Le Coffret Cadeau Idéal
+				</a>
+				<a className="pt-3 loop-gray-text link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/articles/3" rel="noreferrer">
+					La fête du Ramadan
+				</a>
+			</div>
+
+			<div>
+				<a className="pt-3 link-underline link-underline-black hover:scale-105 duration-200 font-semibold" href="/legal" rel="noreferrer">
+					<p>Mentions légales</p>
 				</a>
 			</div>
 		</div>

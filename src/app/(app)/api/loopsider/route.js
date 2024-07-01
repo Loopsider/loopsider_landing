@@ -5,7 +5,7 @@ import {libquery} from "../../lib/db"
 export async function GET() {
 	try {
 		const result = await libquery(
-			"SELECT created_time, storage_thumbnail, account_profile_picture_url, account_name, caption FROM fb_instagram_media_content WHERE account_id = 2 AND storage_thumbnail IS NOT NULL LIMIT 10;"
+			"SELECT created_time, storage_thumbnail, account_profile_picture_url, account_name, caption FROM fb_instagram_media_content WHERE account_id = 2 AND post_type = 'REELS' AND storage_thumbnail IS NOT NULL LIMIT 10;"
 		)
 		return NextResponse.json({data: result.rows}, {status: 200})
 	} catch (error) {

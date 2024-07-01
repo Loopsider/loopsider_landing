@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable import/no-unresolved */
 
 "use client"
@@ -45,12 +46,15 @@ import leboncoin from "../../../../public/img/svg/trustedBrands/leboncoin.svg"
 import loreal from "../../../../public/img/svg/trustedBrands/loreal.svg"
 import meta from "../../../../public/img/svg/trustedBrands/meta.svg"
 import netflix from "../../../../public/img/svg/trustedBrands/netflix.svg"
-// import paribas from "../../../../public/img/svg/trustedBrands/paribas.svg"
-// import prime from "../../../../public/img/svg/trustedBrands/prime.svg"
-// import sncf from "../../../../public/img/svg/trustedBrands/sncf.svg"
-// import tinder from "../../../../public/img/svg/trustedBrands/tinder.svg"
-// import universal from "../../../../public/img/svg/trustedBrands/universal.svg"
-// import veolia from "../../../../public/img/svg/trustedBrands/veolia.svg"
+import republique from "../../../../public/img/svg/trustedBrands/republique.svg"
+import google from "../../../../public/img/svg/trustedBrands/google.svg"
+import m from "../../../../public/img/svg/trustedBrands/m.png"
+import paribas from "../../../../public/img/svg/trustedBrands/paribas.svg"
+import prime from "../../../../public/img/svg/trustedBrands/prime.svg"
+import sncf from "../../../../public/img/svg/trustedBrands/sncf.svg"
+import tinder from "../../../../public/img/svg/trustedBrands/tinder.svg"
+import universal from "../../../../public/img/svg/trustedBrands/universal.svg"
+import veolia from "../../../../public/img/svg/trustedBrands/veolia.svg"
 
 // iphone type svg
 import elleIphone from "../../../../public/img/svg/iphoneScreen/elle.svg"
@@ -183,9 +187,9 @@ export default function HomePage() {
 				</div>
 				<div className="flex justify-center mt-5 main-div-spacing-y">
 					<div className="flex lg:flex-row flex-col justify-center">
-						<Image className="bg-auto mr-3" src={CardLoopsider} alt="Card Loopsider" />
-						<Image className="bg-auto mr-3" src={CardPeriod} alt="Card Period" />
-						<Image className="bg-auto mr-3" src={CardHupster} alt="Card Hupster" />
+						<Image className="hover:scale-105 duration-200 bg-auto mr-3" src={CardLoopsider} alt="Card Loopsider" />
+						<Image className="hover:scale-105 duration-200 bg-auto mr-3" src={CardPeriod} alt="Card Period" />
+						<Image className="hover:scale-105 duration-200 bg-auto mr-3" src={CardHupster} alt="Card Hupster" />
 					</div>
 				</div>
 				<div className="main-div-spacing-x">
@@ -556,36 +560,39 @@ export default function HomePage() {
 							dynamicBullets: true,
 						}}
 						modules={[Mousewheel, Pagination]}
-						slidesPerView={2}
-						spaceBetween={0}
-						// mousewheel
+						slidesPerView={4}
+						spaceBetween={30}
+						centeredSlides
 						grabCursor
 						loop
 						className="mySwiper"
 					>
-						<SwiperSlide>
-							<Image src={bpi} alt="bpi" />
+						<SwiperSlide className="justify-center" style={{display: "flex !important"}}>
+							<Image style={{height: "90px", width: "90px"}} src={republique} alt="republique" />
+						</SwiperSlide>
+						<SwiperSlide className="justify-center" style={{display: "flex !important"}}>
+							<Image style={{height: "90px", width: "90px"}} src={m} alt="m" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={canal} alt="canal" />
+							<Image src={netflix} alt="netflix" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={citeo} alt="citeo" />
+							<Image src={prime} alt="prime" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={deezer} alt="deezer" />
+							<Image src={universal} alt="universal" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={leboncoin} alt="leboncoin" />
+							<Image src={google} alt="google" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={loreal} alt="Thumb1" />
+							<Image src={paribas} alt="paribas" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={meta} alt="Thumb1" />
+							<Image src={sncf} alt="sncf" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={netflix} alt="Thumb12" />
+							<Image src={tinder} alt="tinder" />
 						</SwiperSlide>
 					</Swiper>
 					<Swiper
@@ -610,6 +617,7 @@ export default function HomePage() {
 						slidesPerView={2}
 						spaceBetween={0}
 						// mousewheel
+						centeredSlides
 						grabCursor
 						loop
 						className="mySwiper"
@@ -630,13 +638,13 @@ export default function HomePage() {
 							<Image src={leboncoin} alt="leboncoin" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={loreal} alt="Thumb1" />
+							<Image src={loreal} alt="loreal" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={meta} alt="Thumb1" />
+							<Image src={meta} alt="meta" />
 						</SwiperSlide>
 						<SwiperSlide>
-							<Image src={netflix} alt="Thumb12" />
+							<Image src={veolia} alt="veolia" />
 						</SwiperSlide>
 					</Swiper>
 				</div>
@@ -668,10 +676,17 @@ export default function HomePage() {
 						</div>
 					</div>
 					<div className="lg:flex hidden flex-row justify-between main-div-spacing-y">
-						<Image className="h-full" src={uptousIphone} alt="" />
-						<Image className="h-full" src={elleIphone} alt="" />
-						<Image className="h-full" src={tele7joursIphone} alt="" />
-						<Image className="h-full" src={carrefourIphone} alt="" />
+						<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.instagram.com/up_to_us_veolia" rel="noreferrer">
+							<Image className="h-full" src={uptousIphone} alt="" />
+						</a>
+						<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.instagram.com/ellefr" rel="noreferrer">
+							<Image className="h-full" src={elleIphone} alt="" />
+						</a>
+
+						<a target="_blank" className="link-underline-black hover:scale-105 duration-200" href="https://www.instagram.com/tele7jours" rel="noreferrer">
+							<Image className="h-full" src={tele7joursIphone} alt="" />
+						</a>
+						<Image className="h-full hover:scale-105 duration-200" src={carrefourIphone} alt="" />
 					</div>
 					<div className="lg:hidden flex flex-col flex-row">
 						<div className="flex justify-around w-full mt-5">
