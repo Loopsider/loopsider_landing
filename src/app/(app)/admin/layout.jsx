@@ -1,3 +1,6 @@
+/* eslint-disable unused-imports/no-unused-imports */
+
+// eslint-disable-next-line no-unused-vars
 import React from "react"
 import {FaUser} from "react-icons/fa"
 import Sidebar from "./sidebar/sidebar"

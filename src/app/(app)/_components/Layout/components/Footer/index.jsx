@@ -1,7 +1,6 @@
 import Image from "next/image"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
-
+// import Button from "@mui/material/Button"
+// import TextField from "@mui/material/TextField"
 // import BasicModal from "../Button"
 
 import LoopsiderLogoGreen from "./svg/loopsider_footer.svg"

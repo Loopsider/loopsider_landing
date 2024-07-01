@@ -1,10 +1,11 @@
+/* eslint-disable unused-imports/no-unused-imports */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable import/no-unresolved */
 
 "use client"
 
-import React from "react"
-import {useEffect, useState} from "react"
+// eslint-disable-next-line no-unused-vars
+import {React, useEffect, useState} from "react"
 
 import Image from "next/image"
 import Button from "@mui/material/Button"
@@ -18,8 +19,8 @@ import {Mousewheel, Navigation, Pagination} from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"
 
-import Thumb1 from "./svg/loopsiderCarousel/Thumbnail1.svg"
-import Thumb2 from "./svg/loopsiderCarousel/Thumbnail2.svg"
+// import Thumb1 from "./svg/loopsiderCarousel/Thumbnail1.svg"
+// import Thumb2 from "./svg/loopsiderCarousel/Thumbnail2.svg"
 import Thumb3 from "./svg/loopsiderCarousel/Thumbnail3.svg"
 import Thumb4 from "./svg/loopsiderCarousel/Thumbnail4.svg"
 import Thumb5 from "./svg/loopsiderCarousel/Thumbnail5.svg"
